@@ -1,4 +1,4 @@
-# What did I listen since 2010?
+# What have I listened since 2010?
 setwd('/Users/hazelkavili/Desktop')
 
 install.packages('readxl')
@@ -17,7 +17,7 @@ library(lubridate)
 library(tidyverse)
 library(wesanderson)
 
-myPlays <- read_excel("/Users/hazelkavili/Desktop/lastfmFiles/samcohen.xlsx")
+myPlays <- read_excel("../lastfmFiles/samcohen.xlsx")
 as.POSIXct(myPlays$date, format="%d/%m/%Y %H:%M:%S", tz="CET")
 allMonths <- myPlays %>% expand(year(date), month(date)) %>% filter('year(date)' >= 2010)
 
@@ -43,7 +43,7 @@ ggplot(myTopten, aes(x = reorder(artist,n), y = n, fill = artist)) +
     labs(y = "Scrobbles", x = "")
 
 
-# florence + the machine scroobles
+# florence + the machine scrobbles
 Flo_plays <- myPlays %>% filter(artist == "Florence + the Machine", year(date) >= 2010) 
 Flo_plays %>% group_by(year(date), artist) %>% tally() %>% 
   top_n(1, wt = n) %>% 
