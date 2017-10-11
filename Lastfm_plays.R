@@ -71,22 +71,3 @@ myPlays %>% filter(song %in% myTopten_songs$song) %>%
   group_by(song) %>% mutate(count = n()) %>%
   ggplot(aes(x = year(date), color = song)) +   geom_step(aes(len = count, y = ..y.. * len), stat = "ecdf", size = 1.5) +
   labs(x = "Year", y = "Cumulative scrobbles", color = "Song")
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
