@@ -1,5 +1,4 @@
 # What have I listened since 2010?
-setwd('/Users/hazelkavili/Desktop')
 
 install.packages('readxl')
 install.packages('dplyr')
